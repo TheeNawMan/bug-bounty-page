@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Percentage Roll</title>
+    <style>
+        /* Styling for the entire body and centering the content */
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main container styling */
+        .container {
+            text-align: center;
+            border: 2px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Styling for the percentage and result */
+        #percentage, #result {
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        /* Color for success and failure */
+        .success {
+            color: green;
+        }
+
+        .failure {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Chance of Success</h1>
+        <button onclick="rollPercentage()">Roll</button>
+        <div>
+            <p><span id="percentage">--</span>%</p>
+            <p><span id="result">--</span></p>
+        </div>
+        <script>
+            function rollPercentage() {
+                // Generate a random percentage between 0 to 100
+                let percentage = Math.floor(Math.random() * 101);
+
+                // Display the rolled percentage
+                document.getElementById('percentage').textContent = percentage;
+
+                // Grab the result element
+                let resultElement = document.getElementById('result');
+
+                // If the percentage is more than 50, it's a success. Otherwise, it's a failure.
+                if (percentage > 50) {
+                    resultElement.textContent = 'Success';
+                    resultElement.className = 'success';
+                } else {
+                    resultElement.textContent = 'Failure';
+                    resultElement.className = 'failure';
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
